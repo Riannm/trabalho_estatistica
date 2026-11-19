@@ -54,8 +54,17 @@ call_center_analytics/
 └── .streamlit/config.toml  # tema visual (azul, branco e cinza)
 ```
 
-**Identificação do grupo:** edite as constantes `GRUPO` e `INTEGRANTES` no início do `app.py`.
-Elas aparecem no relatório gerado.
+**Identificação do grupo (Trabalho Avaliativo – Grupo 3):**
+1. **Riann Matheus Dias da Costa** – Sistemas de Informação
+2. **Carlos Rafael Pagung Silva** – Sistemas de Informação
+3. **Gabriel Lima Souza** – Sistemas de Informação
+4. **Marcos Antônio Silva Sena** – Ciência da Computação
+5. **Gabrielle Fernanda Carvalho Ventura** – Ciência da Computação
+6. **Victor Augusto Ferreira** – Ciência da Computação
+7. **Kauã Pedro Ferreira Araújo** – Ciência da Computação
+8. **João Pedro Alves Sampaio** – Ciência da Computação
+9. **Maria Eduarda Martins Santos** – Ciência da Computação
+10. **João Victor Alves Nascimento** – Sistemas de Informação
 
 ## 4. As quatro abas
 

@@ -54,9 +54,20 @@ TEMPOS_ORIGINAIS = [
     163, 171, 188,
 ]
 
-# Identificação do grupo (aparece no relatório gerado) - edite com os nomes da equipe
-GRUPO = "Grupo X"
-INTEGRANTES = ["Integrante 1", "Integrante 2", "Integrante 3"]
+# Identificação do grupo (aparece no relatório gerado)
+GRUPO = "Trabalho Avaliativo – Grupo 3"
+INTEGRANTES = [
+    "Riann Matheus Dias da Costa – Sistemas de Informação",
+    "Carlos Rafael Pagung Silva – Sistemas de Informação",
+    "Gabriel Lima Souza – Sistemas de Informação",
+    "Marcos Antônio Silva Sena – Ciência da Computação",
+    "Gabrielle Fernanda Carvalho Ventura – Ciência da Computação",
+    "Victor Augusto Ferreira – Ciência da Computação",
+    "Kauã Pedro Ferreira Araújo – Ciência da Computação",
+    "João Pedro Alves Sampaio – Ciência da Computação",
+    "Maria Eduarda Martins Santos – Ciência da Computação",
+    "João Victor Alves Nascimento – Sistemas de Informação",
+]
 
 UNIDADE = "s"               # unidade de medida dos tempos (segundos)
 COLUNA = "Tempo (s)"        # nome da coluna na tabela editável
@@ -773,10 +784,37 @@ img{{max-width:100%;border-radius:4px;box-shadow:0 1px 4px rgba(0,0,0,0.08)}}
     line-height: 1.65;
     padding-left: 2px;
 }}
+
+/* Identificação da equipe */
+.equipe-card {{
+    background: #F8FAFD;
+    border: 1px solid #DFE6EE;
+    border-left: 5px solid {AZUL};
+    border-radius: 6px;
+    padding: 14px 18px;
+    margin: 16px 0 24px 0;
+}}
+.equipe-card h3 {{
+    color: {AZUL_ESCURO};
+    font-size: 15px;
+    margin: 0 0 8px 0;
+}}
+.lista-integrantes {{
+    margin: 0;
+    padding-left: 20px;
+    color: #2D3748;
+    font-size: 13.5px;
+    line-height: 1.6;
+}}
 </style></head><body>
 <h1>CALL CENTER ANALYTICS</h1><p class="sub">Análise Estatística de Desempenho Operacional —
 gerado em {datetime.now().strftime('%d/%m/%Y %H:%M')}</p>
-<p><b>{GRUPO}:</b> {", ".join(INTEGRANTES)}</p>
+<div class="equipe-card">
+    <h3>👥 {GRUPO} – Integrantes:</h3>
+    <ol class="lista-integrantes">
+        {"".join(f"<li><b>{item.split(' – ')[0]}</b> — <span style='color:{CINZA}'>{item.split(' – ')[1]}</span></li>" for item in INTEGRANTES)}
+    </ol>
+</div>
 <h2>1. Dados utilizados ({ini['n']} atendimentos, em segundos)</h2><p>{dados_txt}</p>
 <h2>2. Organização inicial</h2>
 <p>Menor valor: <b>{fnum(ini['menor'])} s</b> · Maior valor: <b>{fnum(ini['maior'])} s</b> ·
@@ -900,6 +938,11 @@ def menu_lateral():
             raiz, k = numero_de_classes(n)
             st.markdown(f"**Número de classes:** {k}  \n(√{n} = {fmt(raiz)} → {k})")
         st.markdown(f"**Situação dos dados:** {'✅ originais' if original else '✏️ modificados'}")
+        st.markdown("---")
+        with st.expander("👥 Integrantes do Grupo", expanded=False):
+            for item in INTEGRANTES:
+                nome, curso = item.split(" – ")
+                st.markdown(f"• **{nome}**  \n  <small style='color:{AZUL_CLARO}'>{curso}</small>", unsafe_allow_html=True)
         st.markdown("---")
         st.caption("Ferramentas: Python · Pandas · Matplotlib · Streamlit")
 
